@@ -7,10 +7,13 @@ export const bookValidationSchema = z.object({
     .nonempty('Author is required')
     .trim()
     .max(20, 'Author name must not exceed 20 characters')
-    .refine((value) => /^[A-Z][a-z]*(\s[A-Z][a-z]*)*$/.test(value), {
-      message:
-        "Author name must start with a capital letter for each word (e.g., 'John Doe').",
-    }),
+    .refine(
+      (value) => /^[A-Z](\.|[a-z]*)?(\s[A-Z](\.|[a-z]*)?)*$/.test(value),
+      {
+        message:
+          "Author name must start with a capital letter for each word and can include initials (e.g., 'F. Scott Fitzgerald').",
+      },
+    ),
 
   price: z
     .number()
