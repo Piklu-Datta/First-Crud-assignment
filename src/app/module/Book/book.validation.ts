@@ -17,7 +17,7 @@ export const bookValidationSchema = z.object({
 
   price: z
     .number()
-    .min(0, 'Price must be greater than or equal to 0')
+    .min(1, 'Price must be greater than or equal to 1')
     .max(1000000, 'Price cannot exceed 1,000,000'),
   category: z.enum([
     'Fiction',

@@ -14,7 +14,6 @@ const createBook = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error: any) {
-    console.log(error);
     res.status(400).json({
       message: 'Validation failed',
       success: false,
@@ -50,7 +49,7 @@ const getOneBook = async (req: Request, res: Response) => {
     const id = req.params.productId;
     const result = await BookServices.getSingleBook(id);
     res.status(200).json({
-      message: 'Single Book retrieved successfully',
+      message: 'Book retrieved successfully',
       status: true,
       data: result,
     });

@@ -18,6 +18,7 @@ const bookSchema = new Schema<TBook>(
       type: Number,
       required: [true, 'price is required'],
       max: 1000000,
+      min: [0, 'Price must be a positive number'],
     },
     category: {
       type: String,
